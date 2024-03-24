@@ -6,7 +6,7 @@ export default function About() {
     <div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-        <div className="max-w-2xl mx-auto my-3 lg:mx-0">
+        <div className="max-w-2xl mx-auto my-4 lg:mx-0">
           <h2
             className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl"
             style={{ marginTop: "75px" }}
@@ -53,14 +53,17 @@ export default function About() {
             development, embarking on new travel adventures, or simply spending
             quality time with loved ones, I'm eager to embrace each opportunity
             with open arms. Life is a beautiful journey, and I'm grateful for
-            every moment of it. Who knows where I'll be next? Perhaps leading as
+            every moment of it.
+          </p>
+          <p className="mt-4 text-zinc-400">
+          Who knows where I'll be next? Perhaps leading as
             the CEO of a successful startup, pounding the pavement as a
             dedicated marathon runner, earning recognition as a Forbes 30 under
             30 honoree, or backpacking across the globe, soaking in the diverse
             cultures and breathtaking landscapes. Whatever the future holds, I'm
             ready to embrace the challenges and celebrate the victories along
             the way.
-          </p>
+            </p>
         </div>
       </div>
     </div>

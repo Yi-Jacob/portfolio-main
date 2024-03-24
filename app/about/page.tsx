@@ -31,7 +31,7 @@ export default function About() {
             fulfillment in embracing life's adventures, whether it's through
             travel, running, or delving into the pages of a compelling book.
           </p>
-          <p className="mt-4 text-zinc-400">
+          {/* <p className="mt-4 text-zinc-400">
             Speaking of travel, it's one of my greatest passions. There's
             something magical about immersing myself in different cultures,
             exploring new landscapes, and meeting people from all walks of life.
@@ -51,7 +51,7 @@ export default function About() {
             writing and reading serve as my sanctuaries, allowing me to explore
             new ideas, perspectives, and worlds through captivating novels or
             personal reflections.
-          </p>
+          </p> */}
           <p className="mt-4 text-zinc-400">
             Looking ahead, I'm excited about the endless possibilities that lie
             on the horizon. Whether it's diving deeper into the world of web

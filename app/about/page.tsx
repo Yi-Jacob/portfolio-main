@@ -31,27 +31,6 @@ export default function About() {
             fulfillment in embracing life's adventures, whether it's through
             travel, running, or delving into the pages of a compelling book.
           </p>
-          {/* <p className="mt-4 text-zinc-400">
-            Speaking of travel, it's one of my greatest passions. There's
-            something magical about immersing myself in different cultures,
-            exploring new landscapes, and meeting people from all walks of life.
-            Each journey leaves me with cherished memories and a deeper
-            appreciation for the world around me.
-          </p>
-          <p className="mt-4 text-zinc-400">
-            On the flip side, I also find solace in the simplicity of lacing up
-            my running shoes and hitting the pavement. Running isn't just about
-            physical fitness for me; it's a form of meditation, a way to clear
-            my mind and reconnect with myself. Whether it's a leisurely jog
-            through the park or a challenging sprint, the feeling of freedom
-            that comes with each step is truly exhilarating.
-          </p>
-          <p className="mt-4 text-zinc-400">
-            I also like to immerse myself in the world of literature, where
-            writing and reading serve as my sanctuaries, allowing me to explore
-            new ideas, perspectives, and worlds through captivating novels or
-            personal reflections.
-          </p> */}
           <p className="mt-4 text-zinc-400">
             Looking ahead, I'm excited about the endless possibilities that lie
             on the horizon. Whether it's diving deeper into the world of web

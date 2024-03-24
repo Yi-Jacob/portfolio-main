@@ -24,13 +24,12 @@ export default function About() {
           </p>{" "}
           <p className="mt-4 text-zinc-400">
             Beyond the realm of coding, I find immense joy in the simple
-            pleasures of life. My Christian faith is the cornerstone of my
-            existence, providing me with strength, purpose, and a sense of
-            belonging. Family holds an irreplaceable place in my heart, serving
-            as my foundation and constant motivation. And when it comes to
-            freedom, it's not just about financial independence but also about
-            embracing life's adventures, whether it's through travel or the
-            invigorating rhythm of running.
+            pleasures of life, anchored by my Christian faith, which provides me
+            with strength, purpose, and a profound sense of belonging. In
+            addition to my faith, family holds an irreplaceable place in my
+            heart, serving as my foundation and constant motivation. I find
+            fulfillment in embracing life's adventures, whether it's through
+            travel, running, or delving into the pages of a compelling book.
           </p>
           <p className="mt-4 text-zinc-400">
             Speaking of travel, it's one of my greatest passions. There's
@@ -44,8 +43,14 @@ export default function About() {
             my running shoes and hitting the pavement. Running isn't just about
             physical fitness for me; it's a form of meditation, a way to clear
             my mind and reconnect with myself. Whether it's a leisurely jog
-            through the park or a challenging race, the feeling of freedom that
-            comes with each step is truly exhilarating.
+            through the park or a challenging sprint, the feeling of freedom
+            that comes with each step is truly exhilarating.
+          </p>
+          <p className="mt-4 text-zinc-400">
+            I also like to immerse myself in the world of literature, where
+            writing and reading serve as my sanctuaries, allowing me to explore
+            new ideas, perspectives, and worlds through captivating novels or
+            personal reflections.
           </p>
           <p className="mt-4 text-zinc-400">
             Looking ahead, I'm excited about the endless possibilities that lie
@@ -56,14 +61,14 @@ export default function About() {
             every moment of it.
           </p>
           <p className="mt-4 text-zinc-400">
-          Who knows where I'll be next? Perhaps leading as
-            the CEO of a successful startup, pounding the pavement as a
-            dedicated marathon runner, earning recognition as a Forbes 30 under
-            30 honoree, or backpacking across the globe, soaking in the diverse
-            cultures and breathtaking landscapes. Whatever the future holds, I'm
-            ready to embrace the challenges and celebrate the victories along
-            the way.
-            </p>
+            Who knows where I'll be next? Perhaps leading as the CEO of a
+            successful startup, pounding the pavement as a dedicated marathon
+            runner, earning recognition as a Forbes 30 under 30 honoree, writing
+            a compelling book that resonates with readers, or backpacking across
+            the globe, soaking in the diverse cultures and breathtaking
+            landscapes. Whatever the future holds, I'm ready to embrace the
+            challenges and celebrate the victories along the way.
+          </p>
         </div>
       </div>
     </div>

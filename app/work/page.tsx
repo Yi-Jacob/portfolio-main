@@ -61,7 +61,7 @@ export default function ProjectsPage() {
         <div className="w-full h-px bg-zinc-800" />
 
         {isLoading && <div className="text-white block mx-auto">Loading...</div>}
-        <div className="w-full grid grid-cols-3 gap-5">
+        <div className="w-full grid md:grid-cols-3 gap-5">
           {
             data &&
             data.map(project => {

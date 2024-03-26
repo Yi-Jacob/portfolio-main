@@ -65,14 +65,16 @@ export default function PostPage({ params }: Props) {
   return (
     <div className="bg-zinc-50 min-h-screen">
       <Header project={project} />
+      <div className="container flex md:justify-center min-h-screen px-4 mx-auto">
       <ReportView slug={project.slug} />
-      <div className="flex justify-center mt-10 mx-auto py-5">
+      <div className="flex justify-center mt-10 mx-auto py-5 px-3">
         <div className="mx-auto max-w-2xl lg:mx-0 block">
           <p>{project.personal_description}</p>
           <div className="mx-auto max-w-2xl lg:mx-0 block mt-3">
             <div className="work-items" dangerouslySetInnerHTML={{ __html: project.list_items }} />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

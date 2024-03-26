@@ -32,7 +32,7 @@ export default function Example() {
     butter.post
       .list({ page: 1, page_size: 25 })
       .then(function (response) {
-        setBlogData(response.data as BlogData[]);
+        setBlogData(response.data as unknown as BlogData[]);
       })
       .catch(function (error) {
         console.error(error);

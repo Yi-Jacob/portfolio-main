@@ -8,3 +8,10 @@
   }
 } 
 
+.blog-content p {
+  margin: 16px 0;
+}
+
+.work-items ul {
+  list-style: disc;
+}

@@ -1,10 +1,8 @@
-import { notFound } from "next/navigation";
-import { allProjects } from "contentlayer/generated";
-import { Mdx } from "@/app/components/mdx";
+"use client";
 import { Header } from "./header";
 import "./mdx.css";
 import { ReportView } from "./view";
-import { Redis } from "@upstash/redis";
+import React, { useState, useEffect } from "react";
 
 export const revalidate = 60;
 
@@ -14,35 +12,68 @@ type Props = {
   };
 };
 
-const redis = Redis.fromEnv();
+export default function PostPage({ params }: Props) {
+  const [project, setProject] = useState<{
+    slug: string;
+    link: string;
+    title: string;
+    description: string;
+    repository: string;
+    personal_description: string;
+    list_items: string;
+  } | null>(null); // Specify the type of project explicitly
+  const [isLoading, setIsLoading] = useState(true);
 
-export async function generateStaticParams(): Promise<Props["params"][]> {
-  return allProjects
-    .filter((p) => p.published)
-    .map((p) => ({
-      slug: p.slug,
-    }));
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://api.buttercms.com/v2/content/website_work_items/?auth_token=dd6aeff1e466e9efbec81ee2ca68e5e5f30c5db0`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const jsonData = await response.json();
+        const projects = jsonData.data.website_work_items;
+        const slug = params?.slug;
+        const project = projects.find((project: any) => project.slug === slug);
+        setProject(project);
+      } catch (error) {
+        // Handle error
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-export default async function PostPage({ params }: Props) {
-  const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+    fetchData();
+  }, [params?.slug]);
 
-  if (!project) {
-    notFound();
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
-  const views =
-    (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
+  if (!project) {
+    return <div>No project found</div>;
+  }
 
   return (
     <div className="bg-zinc-50 min-h-screen">
-      <Header project={project} views={views} />
+      <Header project={project} views={1} />
       <ReportView slug={project.slug} />
-
-      <article className="px-4 py-12 mx-auto prose prose-zinc prose-quoteless">
-        <Mdx code={project.body.code} />
-      </article>
+      <div className="flex justify-center mt-10 mx-auto py-5">
+        <div className="mx-auto max-w-2xl lg:mx-0 block">
+          <p>{project.personal_description}</p>
+          <div className="mx-auto max-w-2xl lg:mx-0 block mt-3">
+            <div className="work-items" dangerouslySetInnerHTML={{ __html: project.list_items }} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

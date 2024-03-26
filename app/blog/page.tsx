@@ -12,6 +12,7 @@ interface BlogData {
   seo_title: string;
   slug: string;
   summary: string;
+  published: string;
   categories: [{ name: string; slug: string }];
 }
 

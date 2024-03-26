@@ -6,16 +6,16 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
+    default: "Jacob Yi",
     template: "%s | chronark.com",
   },
   description: "Co-founder of unkey.dev and founder of planetfall.io",
   openGraph: {
-    title: "chronark.com",
+    title: "jacobyi.info",
     description:
       "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    url: "jacobyi.info",
+    siteName: "jacobyi.info",
     images: [
       {
         url: "https://chronark.com/og.png",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Jacob Yi",
     card: "summary_large_image",
   },
   icons: {

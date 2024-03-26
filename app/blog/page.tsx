@@ -7,7 +7,6 @@ import { Article } from "../work/article";
 import Butter from "buttercms";
 const butter = Butter(`${process.env.NEXT_APP_AUTH_TOKEN}`);
 
-
 interface BlogData {
   featured_image: string;
   seo_title: string;
@@ -50,8 +49,7 @@ export default function Example() {
     //     setBlogData(res.data);
     //   })
     //   .catch((err) => err);
-  },
-   []);
+  }, []);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setFilterBy((prevState) => ({
@@ -60,18 +58,29 @@ export default function Example() {
     }));
   };
 
-  const featured = blogData.find((blog) => blog.slug.toLowerCase() === "introduction")!;
-  const top2 = blogData.find((blog) => blog.slug.toLowerCase() === "jacobs-hobbies")!;
-  const top3 = blogData.find((blog) => blog.slug.toLowerCase() === "jacobs-identities")!;
+  const featured = blogData.find(
+    (blog) => blog.slug.toLowerCase() === "introduction"
+  )!;
+  const top2 = blogData.find(
+    (blog) => blog.slug.toLowerCase() === "jacobs-hobbies"
+  )!;
+  const top3 = blogData.find(
+    (blog) => blog.slug.toLowerCase() === "jacobs-identities"
+  )!;
   const filteredBlogs = blogData
-  .filter(
-    (blog) =>
-      blog.slug !== featured?.slug &&
-      blog.slug !== top2?.slug &&
-      blog.slug !== top3?.slug
-  )
+    .filter(
+      (blog) =>
+        blog.slug !== featured?.slug &&
+        blog.slug !== top2?.slug &&
+        blog.slug !== top3?.slug
+    )
     .filter((blog) => {
-      if (filterBy.first && filterBy.second && filterBy.third && filterBy.fourth) {
+      if (
+        filterBy.first &&
+        filterBy.second &&
+        filterBy.third &&
+        filterBy.fourth
+      ) {
         return true;
       } else if (filterBy.first) {
         return blog.categories[0]?.name === "monthly";
@@ -83,7 +92,7 @@ export default function Example() {
         return blog.categories[0]?.name === "reading";
       }
       return true;
-    })
+    });
   return (
     <div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -200,7 +209,7 @@ export default function Example() {
 
         <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
           {filteredBlogs.map((blog: BlogData, index: number) => (
-              <Card key={index}>
+            <Card key={index}>
               <Article blog={blog} />
             </Card>
             // <Card key={index}>

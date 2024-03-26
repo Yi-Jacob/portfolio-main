@@ -96,7 +96,7 @@ export default function Example() {
   return (
     <div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-3 max-w-7xl lg:px-8 md:space-y-4 md:pt-24 lg:pt-32">
+      <div className="px-6 pt-20 pb-10 mx-auto space-y-3 max-w-7xl lg:px-8 md:space-y-4 md:pt-24 lg:pt-32">
         <h1 className="text-4xl font-bold text-white">Blog</h1>
         <p className="text-lg text-gray-300">
           A collection of my thoughts, ideas, and experiences.

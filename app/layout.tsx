@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     default: "Jacob Yi",
     template: "%s | chronark.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Jacob Yi - Innovator, Developer, and Contrarian",
   openGraph: {
     title: "jacobyi.info",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "Jacob Yi - Innovator, Developer, and Contrarian",
     url: "jacobyi.info",
     siteName: "jacobyi.info",
     images: [

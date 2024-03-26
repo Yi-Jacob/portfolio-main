@@ -64,7 +64,7 @@ export default function PostPage({ params }: Props) {
 
   return (
     <div className="bg-zinc-50 min-h-screen">
-      <Header project={project} views={1} />
+      <Header project={project} />
       <ReportView slug={project.slug} />
       <div className="flex justify-center mt-10 mx-auto py-5">
         <div className="mx-auto max-w-2xl lg:mx-0 block">

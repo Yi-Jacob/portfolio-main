@@ -12,7 +12,6 @@ interface BlogData {
 
 type Props = {
   blog: BlogData;
-  views: number;
 };
 
 export const Article: React.FC<Props> = ({ blog }) => {

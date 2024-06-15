@@ -7,13 +7,13 @@ import { Analytics } from "./components/analytics";
 export const metadata: Metadata = {
   title: {
     default: "Jacob Yi",
-    template: "%s | chronark.com",
+    template: "Jacob Yi | %s",
   },
-  description: "Jacob Yi - Innovator, Developer, and Contrarian",
+  description: "Jacob Yi - Christian, Contrarian, Stoic",
   openGraph: {
     title: "jacobyi.info",
     description:
-      "Jacob Yi - Innovator, Developer, and Contrarian",
+      "Jacob Yi - Christian, Contrarian, Stoic",
     url: "jacobyi.info",
     siteName: "jacobyi.info",
     images: [

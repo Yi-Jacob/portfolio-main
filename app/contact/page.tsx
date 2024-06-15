@@ -1,8 +1,13 @@
-"use client";
 import { Github, Mail, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Contact',
+	description: 'Learn where to follow and get in touch with Jacob Yi',
+  };
 
 const socials = [
 	{

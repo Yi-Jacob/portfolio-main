@@ -1,11 +1,7 @@
 "use client";
 import Link from "next/link";
-import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import { Article } from "./article";
-import { Redis } from "@upstash/redis";
-import { Eye } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import Butter from "buttercms";
 const butter = Butter(`${process.env.NEXT_APP_AUTH_TOKEN}`);

@@ -1,8 +1,14 @@
 import { Navigation } from "../../components/nav";
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const slug = params?.slug;
+interface GenerateMetadataParams {
+  params: {
+    slug: string;
+  };
+}
+
+export async function generateMetadata({ params }: GenerateMetadataParams): Promise<Metadata> {
+  const slug = params.slug;
   
   const res = await fetch(
     `https://api.buttercms.com/v2/posts/${slug}?auth_token=${process.env.NEXT_APP_AUTH_TOKEN}`,

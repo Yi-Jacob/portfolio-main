@@ -1,6 +1,44 @@
-"use client";
 import { Navigation } from "../../components/nav";
-import Head from 'next/head'
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const slug = params?.slug;
+  
+  const res = await fetch(
+    `https://api.buttercms.com/v2/posts/${slug}?auth_token=${process.env.NEXT_APP_AUTH_TOKEN}`,
+    {
+      method: "GET",
+    }
+  );
+  
+  const repo = await res.json();
+
+  return {
+    title: repo.data.title,
+    description: repo.data.summary, 
+    openGraph: {
+      title: repo.data.title,
+      description: repo.data.summary,
+      url: `https://jacobyi.info/blog/${slug}`,
+      siteName: "Jacob Yi",
+      images: [
+        {
+          url: repo.data.featured_image,
+          width: 1920,
+          height: 1080,
+        },
+      ],
+      locale: "en-US",
+      type: "article",
+    },
+  };
+}
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
 
 type Props = {
   params: {
@@ -18,21 +56,10 @@ export default async function PostPage({ params }: Props) {
     }
   );
   const repo = await res.json();
-
+  
   return (
-    <><Head>
-      <title>Jacob Yi | {repo.data.title}</title>
-      <meta name="description" content={repo.data.summary} />
-      <meta property="og:title" content={repo.data.title} />
-      <meta property="og:description" content={repo.data.summary} />
-      <meta property="og:image" content={repo.data.featured_image} />
-      <meta property="og:url" content={`https://jacobyi.info/blog/${slug}`} />
-      <meta property="og:type" content="article" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={repo.data.title} />
-      <meta name="twitter:description" content={repo.data.summary} />
-      <meta name="twitter:image" content={repo.data.featured_image} />
-    </Head><div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+
+    <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
         <Navigation />
         <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
           <div className="mx-auto space-y-8 lg:px-8 md:space-y-16 pt-16 md:pt-24 lg:pt-32">
@@ -89,6 +116,6 @@ export default async function PostPage({ params }: Props) {
             </div>
           </div>
         </div>
-      </div></>
+      </div>
   );
 }

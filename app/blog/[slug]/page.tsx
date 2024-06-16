@@ -46,12 +46,6 @@ type Props = {
   };
 };
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
 export default async function PostPage({ params }: Props) {
   const slug = params?.slug;
 

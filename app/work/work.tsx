@@ -29,7 +29,7 @@ export default function ProjectsPage() {
           throw new Error("Network response was not ok");
         }
         const jsonData = await response.json();
-        setData(jsonData.data.website_work_items);
+        setData(jsonData.data.website_work_items.slice().reverse());
       } catch (error) {
         // setError(error);
       } finally {

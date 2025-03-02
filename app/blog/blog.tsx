@@ -31,7 +31,7 @@ export default function Blog() {
   });
   useEffect(() => {
     butter.post
-      .list({ page: 1, page_size: 25 })
+      .list({ page: 1, page_size: 50 })
       .then(function (response) {
         setBlogData(response.data as unknown as BlogData[]);
       })

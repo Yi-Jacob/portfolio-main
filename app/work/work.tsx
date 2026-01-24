@@ -50,24 +50,24 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div className="relative pb-16">
+    <div className="relative pb-12 sm:pb-16">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="px-4 sm:px-6 pt-16 sm:pt-20 mx-auto space-y-6 sm:space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Work
           </h1>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-400">
             A compilation of my work and development projects, reflecting a fusion
             of creativity, expertise, and a relentless drive for innovation.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        {isLoading && <div className="text-white block mx-auto">Loading...</div>}
-        {error && <div className="text-red-200 block mx-auto">{error}</div>}
+        {isLoading && <div className="text-white block mx-auto text-sm sm:text-base">Loading...</div>}
+        {error && <div className="text-red-200 block mx-auto text-sm sm:text-base">{error}</div>}
 
-        <div className="w-full grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="w-full grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {data.map((project) => {
             // Handle images field: can be string, array, or null
             let imageUrl: string | null = null;
@@ -103,17 +103,17 @@ export default function ProjectsPage() {
                         loading="lazy"
                       />
                     </div>
-                    <div className="flex flex-1 flex-col p-4 md:p-6">
-                      <h3 className="text-xl font-medium text-zinc-200 group-hover:text-white font-display">
+                    <div className="flex flex-1 flex-col p-4 sm:p-5 md:p-6">
+                      <h3 className="text-lg sm:text-xl font-medium text-zinc-200 group-hover:text-white font-display">
                         {project.title}
                       </h3>
                     </div>
 
                     {/* Hover overlay - desktop only */}
                     <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-zinc-950/90 via-zinc-950/70 to-transparent opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
-                      <div className="w-full p-4 md:p-6 space-y-3">
+                      <div className="w-full p-4 sm:p-5 md:p-6 space-y-2 sm:space-y-3">
                         {hasMetadata && (
-                          <div className="space-y-1.5 text-sm text-zinc-100">
+                          <div className="space-y-1 sm:space-y-1.5 text-xs sm:text-sm text-zinc-100">
                             {project.role && (
                               <div className="truncate">
                                 <span className="text-zinc-300 font-medium">Role:</span>{" "}
@@ -134,7 +134,7 @@ export default function ProjectsPage() {
                             )}
                           </div>
                         )}
-                        <span className="inline-flex text-sm font-semibold text-white mt-2">
+                        <span className="inline-flex text-xs sm:text-sm font-semibold text-white mt-1 sm:mt-2">
                           Learn More <span aria-hidden="true">&rarr;</span>
                         </span>
                       </div>

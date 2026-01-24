@@ -2,16 +2,24 @@
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import React, { useState, useEffect } from "react";
-import Butter from "buttercms";
-const butter = Butter(`${process.env.NEXT_APP_AUTH_TOKEN}`);
+import React, { useEffect, useState } from "react";
+
+type ProjectPreview = {
+  slug: string;
+  title: string;
+  cover_image?: string | null;
+  images?: string | Array<string | { url?: string; src?: string }> | null;
+  role?: string | null;
+  stack?: string | null;
+  focus?: string | null;
+};
 
 export const revalidate = 60;
-export default function ProjectsPage() {
 
-  const [data, setData] = useState<Array<{ slug: string; date: string; title: string; description: string }> | null>(null);
+export default function ProjectsPage() {
+  const [data, setData] = useState<ProjectPreview[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,9 +37,10 @@ export default function ProjectsPage() {
           throw new Error("Network response was not ok");
         }
         const jsonData = await response.json();
-        setData(jsonData.data.website_work_items);
-      } catch (error) {
-        // setError(error);
+        const projects = jsonData?.data?.website_work_items ?? [];
+        setData(projects.reverse());
+      } catch {
+        setError("Unable to load projects.");
       } finally {
         setIsLoading(false);
       }
@@ -39,44 +48,102 @@ export default function ProjectsPage() {
 
     fetchData();
   }, []);
+
   return (
     <div className="relative pb-16">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Work
-          </h2>
+          </h1>
           <p className="mt-4 text-zinc-400">
-          A compilation of my work and development projects, reflecting a fusion of creativity, expertise, and a relentless drive for innovation.
+            A compilation of my work and development projects, reflecting a fusion
+            of creativity, expertise, and a relentless drive for innovation.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
         {isLoading && <div className="text-white block mx-auto">Loading...</div>}
-        <div className="w-full grid md:grid-cols-3 gap-5">
-          {
-            data &&
-            data.map(project => {
-              return (
-                <Card key={project.slug}>
-                  <Link href={`/work/${project.slug}`}>
-                    <article className="p-4 md:p-8 flex flex-col justify-between">
-                      <h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
+        {error && <div className="text-red-200 block mx-auto">{error}</div>}
+
+        <div className="w-full grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {data.map((project) => {
+            // Handle images field: can be string, array, or null
+            let imageUrl: string | null = null;
+            if (typeof project.images === "string") {
+              imageUrl = project.images;
+            } else if (Array.isArray(project.images) && project.images.length > 0) {
+              const firstImage = project.images[0];
+              imageUrl =
+                typeof firstImage === "string"
+                  ? firstImage
+                  : firstImage?.url || firstImage?.src || null;
+            }
+            const coverImage =
+              project.cover_image || imageUrl || "/og.png";
+            const hasMetadata = Boolean(
+              project.role || project.stack || project.focus
+            );
+
+            return (
+              <Card key={project.slug}>
+                <Link
+                  href={`/work/${project.slug}`}
+                  className="block h-full"
+                  aria-label={`View ${project.title}`}
+                >
+                  <article className="relative flex h-full flex-col overflow-hidden">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={coverImage}
+                        alt={`${project.title} project cover image`}
+                        className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col p-4 md:p-6">
+                      <h3 className="text-xl font-medium text-zinc-200 group-hover:text-white font-display">
                         {project.title}
-                      </h2>
-                      <p className="z-20 mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
-                        {project.description}
-                      </p>
-                      <Link href={`/work/${project.slug}`} className="z-20 mt-6 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
-                        Learn More <span aria-hidden="true">&rarr;</span>
-                        </Link>
-                    </article>
-                  </Link>
-                </Card>
-              )
-            })
-          }
+                      </h3>
+                    </div>
+
+                    {/* Hover overlay - desktop only */}
+                    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-zinc-950/90 via-zinc-950/70 to-transparent opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                      <div className="w-full p-4 md:p-6 space-y-3">
+                        {hasMetadata && (
+                          <div className="space-y-1.5 text-sm text-zinc-100">
+                            {project.role && (
+                              <div className="truncate">
+                                <span className="text-zinc-300 font-medium">Role:</span>{" "}
+                                <span>{project.role}</span>
+                              </div>
+                            )}
+                            {project.stack && (
+                              <div className="truncate">
+                                <span className="text-zinc-300 font-medium">Stack:</span>{" "}
+                                <span>{project.stack}</span>
+                              </div>
+                            )}
+                            {project.focus && (
+                              <div className="truncate">
+                                <span className="text-zinc-300 font-medium">Focus:</span>{" "}
+                                <span>{project.focus}</span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        <span className="inline-flex text-sm font-semibold text-white mt-2">
+                          Learn More <span aria-hidden="true">&rarr;</span>
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </div>

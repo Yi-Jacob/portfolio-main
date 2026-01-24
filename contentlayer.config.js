@@ -25,6 +25,12 @@ export const Project = defineDocumentType(() => ({
 		published: {
 			type: "boolean",
 		},
+		coverImage: {
+			type: "string",
+		},
+		heroImage: {
+			type: "string",
+		},
 		title: {
 			type: "string",
 			required: true,
@@ -32,6 +38,23 @@ export const Project = defineDocumentType(() => ({
 		description: {
 			type: "string",
 			required: true,
+		},
+		role: {
+			type: "string",
+		},
+		stack: {
+			type: "string",
+		},
+		focus: {
+			type: "string",
+		},
+		contributions: {
+			type: "list",
+			of: { type: "string" },
+		},
+		gallery: {
+			type: "list",
+			of: { type: "string" },
 		},
 		date: {
 			type: "date",

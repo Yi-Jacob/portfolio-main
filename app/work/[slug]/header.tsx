@@ -99,9 +99,11 @@ export const Header: React.FC<Props> = ({ project }) => {
 						<h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
 							{project.title}
 						</h1>
-						<p className="mt-6 text-lg leading-8 text-zinc-300">
-							{project.description}
-						</p>
+						{project.description && (
+							<p className="mt-4 text-lg leading-8 text-zinc-300">
+								{project.description}
+							</p>
+						)}
 					</div>
 
 					<div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">

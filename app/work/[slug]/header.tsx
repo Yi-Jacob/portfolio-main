@@ -42,18 +42,18 @@ export const Header: React.FC<Props> = ({ project }) => {
 	return (
 		<header
 			ref={ref}
-			className="relative isolate overflow-hidden bg-gradient-to-tl from-black via-zinc-900 to-black"
+			className="relative isolate overflow-hidden bg-gradient-to-tl from-black via-zinc-900 to-black w-full"
 		>
 			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent ${
+				className={`fixed inset-x-0 top-0 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent w-full ${
 					isIntersecting
 						? "bg-zinc-900/0 border-transparent"
 						: "bg-white/10  border-zinc-200 lg:border-transparent"
 				}`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-4 sm:p-6 mx-auto">
-					<div className="flex justify-between gap-4 sm:gap-8">
-						<Link target="_blank" href="https://www.linkedin.com/in/yi-jacob/">
+				<div className="w-full max-w-full flex flex-row-reverse items-center justify-between p-4 sm:p-6 mx-auto">
+					<div className="flex justify-between gap-3 sm:gap-4 md:gap-8 min-w-0">
+						<Link target="_blank" href="https://www.linkedin.com/in/yi-jacob/" className="flex-shrink-0">
 							<Linkedin
 								className={`w-5 h-5 sm:w-6 sm:h-6 duration-200 hover:font-medium ${
 									isIntersecting
@@ -62,7 +62,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 								} `}
 							/>
 						</Link>
-						<Link target="_blank" href="mailto:jacobyideveloper@gmail.com">
+						<Link target="_blank" href="mailto:jacobyideveloper@gmail.com" className="flex-shrink-0">
 						<Mail
 								className={`w-5 h-5 sm:w-6 sm:h-6 duration-200 hover:font-medium ${
 									isIntersecting
@@ -71,7 +71,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 								} `}
 							/>
 						</Link>
-						<Link target="_blank" href="https://github.com/yi-jacob">
+						<Link target="_blank" href="https://github.com/yi-jacob" className="flex-shrink-0">
 							<Github
 								className={`w-5 h-5 sm:w-6 sm:h-6 duration-200 hover:font-medium ${
 									isIntersecting
@@ -83,7 +83,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 					</div>
 					<Link
 						href="/work"
-						className={`duration-200 hover:font-medium ${
+						className={`duration-200 hover:font-medium flex-shrink-0 ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
 								: "text-zinc-600 hover:text-zinc-900"
@@ -93,23 +93,23 @@ export const Header: React.FC<Props> = ({ project }) => {
 					</Link>
 				</div>
 			</div>
-			<div className="container mx-auto relative isolate overflow-hidden py-12 sm:py-20 md:py-32">
-				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-					<div className="mx-auto max-w-2xl lg:mx-0">
-						<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-white font-display px-4 sm:px-0">
+			<div className="container mx-auto relative isolate overflow-hidden py-12 sm:py-20 md:py-32 w-full max-w-full">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center w-full">
+					<div className="mx-auto max-w-2xl lg:mx-0 w-full">
+						<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-white font-display px-0 break-words">
 							{project.title}
 						</h1>
 						{project.description && (
-							<p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-6 sm:leading-7 md:leading-8 text-zinc-300 px-4 sm:px-0">
+							<p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-6 sm:leading-7 md:leading-8 text-zinc-300 px-0 break-words">
 								{project.description}
 							</p>
 						)}
 					</div>
 
-					<div className="mx-auto mt-6 sm:mt-10 max-w-2xl lg:mx-0 lg:max-w-none px-4 sm:px-0">
+					<div className="mx-auto mt-6 sm:mt-10 max-w-2xl lg:mx-0 lg:max-w-none px-0 w-full">
 						<div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-sm sm:text-base font-semibold leading-7 text-white">
 							{links.map((link) => (
-								<Link target="_blank" key={link.label} href={link.href} className="hover:underline">
+								<Link target="_blank" key={link.label} href={link.href} className="hover:underline break-words">
 									{link.label} <span aria-hidden="true">&rarr;</span>
 								</Link>
 							))}

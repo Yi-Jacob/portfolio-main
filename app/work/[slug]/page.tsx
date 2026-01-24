@@ -65,15 +65,33 @@ export default function PostPage({ params }: Props) {
   }, [params?.slug]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="bg-zinc-50 min-h-screen flex items-center justify-center">
+        <div className="text-center px-4">
+          <div className="text-zinc-600 text-base sm:text-lg">Loading...</div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <div className="bg-zinc-50 min-h-screen flex items-center justify-center">
+        <div className="text-center px-4">
+          <div className="text-red-600 text-base sm:text-lg">{error}</div>
+        </div>
+      </div>
+    );
   }
 
   if (!project) {
-    return <div>No project found</div>;
+    return (
+      <div className="bg-zinc-50 min-h-screen flex items-center justify-center">
+        <div className="text-center px-4">
+          <div className="text-zinc-600 text-base sm:text-lg">No project found</div>
+        </div>
+      </div>
+    );
   }
 
   const hasMeta = Boolean(project.role || project.stack || project.focus);
@@ -100,11 +118,11 @@ export default function PostPage({ params }: Props) {
       <Header project={project} />
       <ReportView slug={project.slug} />
       
-      <main className="container mx-auto px-4 sm:px-6 pb-16 pt-8 sm:pt-12">
+      <main className="container mx-auto px-4 sm:px-6 md:px-8 pb-12 sm:pb-16 pt-6 sm:pt-8 md:pt-12">
         <article className="mx-auto max-w-4xl">
           {/* Hero image */}
           {heroImage && (
-            <div className="mb-8 sm:mb-12">
+            <div className="mb-6 sm:mb-8 md:mb-12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={heroImage}
@@ -117,22 +135,22 @@ export default function PostPage({ params }: Props) {
 
           {/* Role / Stack / Focus - stacked vertically */}
           {hasMeta && (
-            <div className="mb-12 sm:mb-16" aria-label="Project metadata">
-              <div className="flex flex-col gap-4 text-sm sm:text-base text-zinc-600">
+            <div className="mb-8 sm:mb-12 md:mb-16" aria-label="Project metadata">
+              <div className="flex flex-col gap-3 sm:gap-4 text-sm sm:text-base text-zinc-600">
                 {project.role && (
-                  <div>
+                  <div className="break-words">
                     <span className="font-medium text-zinc-500">Role</span>
                     <span className="ml-2">{project.role}</span>
                   </div>
                 )}
                 {project.stack && (
-                  <div>
+                  <div className="break-words">
                     <span className="font-medium text-zinc-500">Stack</span>
                     <span className="ml-2">{project.stack}</span>
                   </div>
                 )}
                 {project.focus && (
-                  <div>
+                  <div className="break-words">
                     <span className="font-medium text-zinc-500">Focus</span>
                     <span className="ml-2">{project.focus}</span>
                   </div>
@@ -143,22 +161,24 @@ export default function PostPage({ params }: Props) {
 
           {/* Overview section */}
           {project.personal_description && (
-            <section className="mb-12 sm:mb-16" aria-labelledby="overview-heading">
-              <h2 id="overview-heading" className="text-2xl sm:text-3xl font-semibold text-zinc-900 mb-4 sm:mb-6">
+            <section className="mb-8 sm:mb-12 md:mb-16" aria-labelledby="overview-heading">
+              <h2 id="overview-heading" className="text-xl sm:text-2xl md:text-3xl font-semibold text-zinc-900 mb-3 sm:mb-4 md:mb-6">
                 Overview
               </h2>
-              <p className="text-zinc-700 leading-7 sm:leading-8 text-base sm:text-lg">{project.personal_description}</p>
+              <p className="text-zinc-700 leading-6 sm:leading-7 md:leading-8 text-sm sm:text-base md:text-lg break-words">
+                {project.personal_description}
+              </p>
             </section>
           )}
 
           {/* My Contributions section */}
           {project.list_items && (
-            <section className="mb-12 sm:mb-16" aria-labelledby="contributions-heading">
-              <h2 id="contributions-heading" className="text-2xl sm:text-3xl font-semibold text-zinc-900 mb-4 sm:mb-6">
+            <section className="mb-8 sm:mb-12 md:mb-16" aria-labelledby="contributions-heading">
+              <h2 id="contributions-heading" className="text-xl sm:text-2xl md:text-3xl font-semibold text-zinc-900 mb-3 sm:mb-4 md:mb-6">
                 My Contributions
               </h2>
               <div
-                className="work-items text-zinc-700 leading-7 space-y-3 text-base sm:text-lg"
+                className="work-items text-zinc-700 leading-6 sm:leading-7 space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg break-words"
                 dangerouslySetInnerHTML={{ __html: project.list_items }}
               />
             </section>
@@ -166,11 +186,11 @@ export default function PostPage({ params }: Props) {
 
           {/* Gallery - only if multiple images */}
           {hasMultipleImages && (
-            <section className="mt-12 sm:mt-20" aria-labelledby="gallery-heading">
-              <h2 id="gallery-heading" className="text-2xl sm:text-3xl font-semibold text-zinc-900 mb-6 sm:mb-8">
+            <section className="mt-8 sm:mt-12 md:mt-20" aria-labelledby="gallery-heading">
+              <h2 id="gallery-heading" className="text-xl sm:text-2xl md:text-3xl font-semibold text-zinc-900 mb-4 sm:mb-6 md:mb-8">
                 Gallery
               </h2>
-              <div className="grid gap-6 sm:gap-8 sm:grid-cols-2">
+              <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2">
                 {galleryImages.slice(1).map((image, index) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -187,12 +207,12 @@ export default function PostPage({ params }: Props) {
 
           {/* External website link */}
           {project.link && (
-            <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-zinc-200">
+            <div className="mt-8 sm:mt-12 md:mt-16 pt-4 sm:pt-6 md:pt-8 border-t border-zinc-200">
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-base sm:text-lg text-zinc-700 hover:text-zinc-900 font-medium transition-colors"
+                className="inline-flex items-center text-sm sm:text-base md:text-lg text-zinc-700 hover:text-zinc-900 font-medium transition-colors break-words"
               >
                 Visit Website <span aria-hidden="true" className="ml-2">&rarr;</span>
               </a>

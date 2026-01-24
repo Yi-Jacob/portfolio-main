@@ -51,11 +51,11 @@ export const Header: React.FC<Props> = ({ project }) => {
 						: "bg-white/10  border-zinc-200 lg:border-transparent"
 				}`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between gap-8">
+				<div className="container flex flex-row-reverse items-center justify-between p-4 sm:p-6 mx-auto">
+					<div className="flex justify-between gap-4 sm:gap-8">
 						<Link target="_blank" href="https://www.linkedin.com/in/yi-jacob/">
 							<Linkedin
-								className={`w-6 h-6 duration-200 hover:font-medium ${
+								className={`w-5 h-5 sm:w-6 sm:h-6 duration-200 hover:font-medium ${
 									isIntersecting
 										? " text-zinc-400 hover:text-zinc-100"
 										: "text-zinc-600 hover:text-zinc-900"
@@ -64,7 +64,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 						</Link>
 						<Link target="_blank" href="mailto:jacobyideveloper@gmail.com">
 						<Mail
-								className={`w-6 h-6 duration-200 hover:font-medium ${
+								className={`w-5 h-5 sm:w-6 sm:h-6 duration-200 hover:font-medium ${
 									isIntersecting
 										? " text-zinc-400 hover:text-zinc-100"
 										: "text-zinc-600 hover:text-zinc-900"
@@ -73,7 +73,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 						</Link>
 						<Link target="_blank" href="https://github.com/yi-jacob">
 							<Github
-								className={`w-6 h-6 duration-200 hover:font-medium ${
+								className={`w-5 h-5 sm:w-6 sm:h-6 duration-200 hover:font-medium ${
 									isIntersecting
 										? " text-zinc-400 hover:text-zinc-100"
 										: "text-zinc-600 hover:text-zinc-900"
@@ -89,27 +89,27 @@ export const Header: React.FC<Props> = ({ project }) => {
 								: "text-zinc-600 hover:text-zinc-900"
 						} `}
 					>
-						<ArrowLeft className="w-6 h-6 " />
+						<ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
 					</Link>
 				</div>
 			</div>
-			<div className="container mx-auto relative isolate overflow-hidden  py-20 sm:py-32">
-				<div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
+			<div className="container mx-auto relative isolate overflow-hidden py-12 sm:py-20 md:py-32">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
+						<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-white font-display px-4 sm:px-0">
 							{project.title}
 						</h1>
 						{project.description && (
-							<p className="mt-4 text-lg leading-8 text-zinc-300">
+							<p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-6 sm:leading-7 md:leading-8 text-zinc-300 px-4 sm:px-0">
 								{project.description}
 							</p>
 						)}
 					</div>
 
-					<div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-						<div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+					<div className="mx-auto mt-6 sm:mt-10 max-w-2xl lg:mx-0 lg:max-w-none px-4 sm:px-0">
+						<div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-sm sm:text-base font-semibold leading-7 text-white">
 							{links.map((link) => (
-								<Link target="_blank" key={link.label} href={link.href}>
+								<Link target="_blank" key={link.label} href={link.href} className="hover:underline">
 									{link.label} <span aria-hidden="true">&rarr;</span>
 								</Link>
 							))}

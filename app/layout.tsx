@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jacobyi.info"),
   title: {
     default: "Jacob Yi",
     template: "Jacob Yi | %s",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     title: "jacobyi.info",
     description:
       "Jacob Yi - Christian, Contrarian, Stoic",
-    url: "jacobyi.info",
+    url: "https://jacobyi.info",
     siteName: "jacobyi.info",
     images: [
       {

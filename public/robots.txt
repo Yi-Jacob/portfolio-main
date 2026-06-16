@@ -1,0 +1,4 @@
+# https://jacobyi.info
+User-agent: *
+Allow: /
+Disallow: /api/

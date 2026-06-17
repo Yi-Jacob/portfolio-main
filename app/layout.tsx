@@ -65,6 +65,23 @@ export default function RootLayout({
     <html lang="en" className={[inter.variable, calSans.variable, "overflow-x-hidden"].join(" ")}>
       <head>
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Jacob Yi",
+              url: "https://jacobyi.info",
+              description: "Jacob Yi - Christian, Contrarian, Stoic",
+              image: "https://jacobyi.info/og.png",
+              sameAs: [
+                "https://github.com/Yi-Jacob",
+                "https://www.linkedin.com/in/yi-jacob/",
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined

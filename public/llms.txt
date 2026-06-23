@@ -1,0 +1,16 @@
+# Jacob Yi — Portfolio
+
+> Personal portfolio of Jacob Yi: Christian, Contrarian, Stoic. Senior software engineer and commodity broker. Showcases selected work, writing, and background.
+
+This is the personal site at https://jacobyi.info, built with Next.js. The sections below cover the primary pages and ways to get in touch.
+
+## Pages
+- [Home](https://jacobyi.info/): Landing page and introduction.
+- [About](https://jacobyi.info/about): Background, identities, and interests.
+- [Work](https://jacobyi.info/work): Selected projects and case studies.
+- [Blog](https://jacobyi.info/blog): Articles and writing.
+- [Contact](https://jacobyi.info/contact): Ways to get in touch.
+
+## Contact
+- [Email](mailto:jacobyideveloper@gmail.com): jacobyideveloper@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/yi-jacob/): Professional profile.

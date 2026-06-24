@@ -4,6 +4,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About',
   description: 'Jacob Yi, a full-stack developer, creates dynamic web apps. Passionate about coding, faith, family, travel, and embracing future opportunities.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function About() {

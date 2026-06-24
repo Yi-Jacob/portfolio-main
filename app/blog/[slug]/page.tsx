@@ -21,19 +21,24 @@ export async function generateMetadata({ params }: GenerateMetadataParams): Prom
 
   return {
     title: repo.data.title,
-    description: repo.data.summary, 
+    description: repo.data.summary,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: repo.data.title,
       description: repo.data.summary,
       url: `https://jacobyi.info/blog/${slug}`,
       siteName: "Jacob Yi",
-      images: [
-        {
-          url: repo.data.featured_image,
-          width: 1920,
-          height: 1080,
-        },
-      ],
+      images: repo.data.featured_image
+        ? [
+            {
+              url: repo.data.featured_image,
+              width: 1200,
+              height: 630,
+            },
+          ]
+        : undefined,
       locale: "en-US",
       type: "article",
     },
@@ -56,10 +61,34 @@ export default async function PostPage({ params }: Props) {
     }
   );
   const repo = await res.json();
-  
+
+  const articleJsonLd = repo?.data?.title
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: repo.data.title,
+        description: repo.data.summary,
+        image: repo.data.featured_image || undefined,
+        datePublished: repo.data.published,
+        dateModified: repo.data.updated || repo.data.published,
+        url: `https://jacobyi.info/blog/${slug}`,
+        author: {
+          "@type": "Person",
+          name: "Jacob Yi",
+          url: "https://jacobyi.info",
+        },
+      }
+    : null;
+
   return (
 
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+        {articleJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+          />
+        )}
         <Navigation />
         <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
           <div className="mx-auto space-y-8 lg:px-8 md:space-y-16 pt-16 md:pt-24 lg:pt-32">

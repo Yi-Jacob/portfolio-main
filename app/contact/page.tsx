@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
 	title: 'Contact',
 	description: 'Learn where to follow and get in touch with Jacob Yi',
+	alternates: {
+		canonical: '/contact',
+	},
   };
 
 const socials = [

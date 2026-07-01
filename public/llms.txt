@@ -1,0 +1,21 @@
+# Jacob Yi
+
+> Personal site and portfolio of Jacob Yi — software engineer and commodity broker. The site also offers a service: fast, modern websites and local + AI search visibility for criminal-defense law firms.
+
+Jacob Yi describes himself as Christian, Contrarian, Stoic. The site combines a personal portfolio (writing, work, projects) with a productized service for criminal-defense firms who want to show up when someone searches for a lawyer.
+
+## Main pages
+
+- [Home](https://jacobyi.info): Landing page and overview.
+- [About](https://jacobyi.info/about): Background on Jacob Yi.
+- [Work](https://jacobyi.info/work): Portfolio of projects and case studies.
+- [Blog](https://jacobyi.info/blog): Articles and writing.
+- [Contact](https://jacobyi.info/contact): How to get in touch.
+
+## Services
+
+- [Criminal Defense Law Firm Websites & SEO](https://jacobyi.info/criminal-defense-websites): Fast, modern websites and local + AI search visibility for criminal-defense firms — so you show up when someone needs you and picks up the phone.
+
+## Optional
+
+- [Sitemap](https://jacobyi.info/sitemap.xml): Full list of indexable URLs, including individual blog posts and work items.

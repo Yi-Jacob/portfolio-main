@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import { JsonLd } from "./components/json-ld";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jacobyi.info"),
@@ -17,15 +18,11 @@ export const metadata: Metadata = {
       "Jacob Yi - Christian, Contrarian, Stoic",
     url: "https://jacobyi.info",
     siteName: "jacobyi.info",
-    images: [
-      {
-        url: "https://jacobyi.info/og.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],
     locale: "en-US",
     type: "website",
+  },
+  alternates: {
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -43,7 +40,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
+    icon: "/favicon.png",
     shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 const inter = Inter({
@@ -65,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className={[inter.variable, calSans.variable, "overflow-x-hidden"].join(" ")}>
       <head>
         <Analytics />
+        <JsonLd />
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined

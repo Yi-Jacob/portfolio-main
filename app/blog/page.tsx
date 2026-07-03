@@ -240,6 +240,9 @@ import Blog from "./blog";
 export const metadata = {
   title: 'Blog',
   description: "Jacob Yi's Blog, a collection of my thoughts, ideas, and experiences.",
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default async function Page(){

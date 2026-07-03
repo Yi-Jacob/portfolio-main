@@ -5,7 +5,7 @@ import { Navigation } from "../../components/nav";
 export const metadata: Metadata = {
   title: "Consulting",
   description:
-    "Purpose-driven technology with ethical innovation — engineering, AI systems, agents, and automation that stays reviewable and accountable.",
+    "Purpose-driven technology with ethical innovation. Engineering, AI systems, agents, and automation that stays reviewable and accountable.",
 };
 
 const technologyCards = [
@@ -60,9 +60,43 @@ const aiCards = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.jacobyi.info/#jacob",
+      name: "Jacob Yi",
+      url: "https://www.jacobyi.info",
+      jobTitle: "Software, AI, and SEO Consultant",
+      sameAs: ["https://yilegacyventures.com"],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.jacobyi.info/work/services#service",
+      name: "Jacob Yi Consulting",
+      url: "https://www.jacobyi.info/work/services",
+      description:
+        "Software engineering, web development, SEO, and AI agent systems for operators and professional service firms.",
+      provider: { "@id": "https://www.jacobyi.info/#jacob" },
+      areaServed: "US",
+      serviceType: [
+        "Web development",
+        "SEO",
+        "Custom software",
+        "AI agents and automation",
+      ],
+    },
+  ],
+};
+
 export default function Services() {
   return (
     <div className="relative pb-12 sm:pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <div className="px-4 sm:px-6 pt-16 sm:pt-20 mx-auto space-y-12 max-w-4xl lg:px-8 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -93,7 +127,7 @@ export default function Services() {
           <p className="text-zinc-400 leading-relaxed mb-8">
             Our roots in software engineering give us a unique edge. We invest in and develop digital
             solutions that create efficiency, transparency, and scale while maintaining ethical
-            standards—including AI-native features, agent workflows, and automation that stays
+            standards, including AI-native features, agent workflows, and automation that stays
             reviewable and accountable. From commodities dashboards to bespoke client portals, we
             build with purpose, integrity, and long-term value creation in mind.
           </p>

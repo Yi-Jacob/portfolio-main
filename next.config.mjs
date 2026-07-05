@@ -9,6 +9,15 @@ const nextConfig = {
   env: {
     NEXT_APP_AUTH_TOKEN: "dd6aeff1e466e9efbec81ee2ca68e5e5f30c5db0",
   },
+  async redirects() {
+    return [
+      {
+        source: "/criminal-defense-websites",
+        destination: "/work/services",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withContentlayer(nextConfig);

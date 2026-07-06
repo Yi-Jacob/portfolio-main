@@ -46,12 +46,11 @@ export const Navigation: React.FC = () => {
             >
               Work
             </Link>
-
             <Link
-              href="/criminal-defense-websites"
+              href="/work/services"
               className="duration-200 text-zinc-400 hover:text-zinc-100"
             >
-              For Law Firms
+              Consulting
             </Link>
 
             <Link

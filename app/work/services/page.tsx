@@ -5,7 +5,7 @@ import { Navigation } from "../../components/nav";
 export const metadata: Metadata = {
   title: "Consulting",
   description:
-    "Purpose-driven technology with ethical innovation — engineering, AI systems, agents, and automation that stays reviewable and accountable.",
+    "I build purpose-driven technology with ethical innovation — engineering, AI systems, agents, and automation that stays reviewable and accountable.",
 };
 
 const technologyCards = [
@@ -41,7 +41,7 @@ const technologyCards = [
 
 const aiCards = [
   {
-    title: "What we deliver",
+    title: "What I deliver",
     items: [
       "Agent playbooks for research, support, and internal ops",
       "Pipelines that connect models to your CRM, docs, and messaging",
@@ -50,7 +50,7 @@ const aiCards = [
     ],
   },
   {
-    title: "How we work",
+    title: "How I work",
     items: [
       "Start from outcomes and risk, not buzzwords",
       "Prefer narrow, testable automations before broad autonomy",
@@ -70,7 +70,7 @@ export default function Services() {
             Consulting
           </h1>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-400">
-            Purpose-driven technology with ethical innovation.
+            I build purpose-driven technology with ethical innovation.
           </p>
         </div>
 
@@ -91,11 +91,11 @@ export default function Services() {
           </div>
 
           <p className="text-zinc-400 leading-relaxed mb-8">
-            Our roots in software engineering give us a unique edge. We invest in and develop digital
-            solutions that create efficiency, transparency, and scale while maintaining ethical
-            standards—including AI-native features, agent workflows, and automation that stays
-            reviewable and accountable. From commodities dashboards to bespoke client portals, we
-            build with purpose, integrity, and long-term value creation in mind.
+            My background in software engineering gives me a real edge. I build digital solutions
+            that create efficiency, transparency, and scale while keeping ethical standards
+            front and center—including AI-native features, agent workflows, and automation that
+            stays reviewable and accountable. From commodities dashboards to bespoke client
+            portals, I build with purpose, integrity, and long-term value in mind.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -124,7 +124,7 @@ export default function Services() {
             AI systems, agents &amp; intelligent automation
           </h2>
           <p className="text-zinc-400 leading-relaxed mb-8">
-            We design and implement AI-assisted systems for operators who need speed without
+            I design and implement AI-assisted systems for operators who need speed without
             losing control: scoped automations, agent orchestration, and integrations that
             respect privacy, provenance, and approval paths. Engagements range from advisory
             and architecture to hands-on build alongside your team.
@@ -152,11 +152,14 @@ export default function Services() {
           <h2 className="text-xl sm:text-2xl font-bold text-zinc-100 mb-4">
             Have a project in mind?
           </h2>
+          <p className="text-zinc-400 mb-6">
+            Tell me what you&apos;re building and I&apos;ll let you know if I can help.
+          </p>
           <Link
             href="/contact"
             className="inline-flex items-center bg-zinc-100 hover:bg-white text-zinc-900 px-8 py-3 rounded-full font-medium transition-colors duration-200"
           >
-            Discuss a project
+            Get in touch
           </Link>
         </div>
       </div>

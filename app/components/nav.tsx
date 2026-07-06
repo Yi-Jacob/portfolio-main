@@ -50,7 +50,7 @@ export const Navigation: React.FC = () => {
               href="/work/services"
               className="duration-200 text-zinc-400 hover:text-zinc-100"
             >
-              Services
+              Consulting
             </Link>
 
             <Link

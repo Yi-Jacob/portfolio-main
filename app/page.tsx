@@ -1,6 +1,13 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import React from "react";
 import Particles from "./components/particles";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const navigation = [
   { name: "About", href: "/about" },

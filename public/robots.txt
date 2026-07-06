@@ -1,4 +1,29 @@
 # https://jacobyi.info
+
 User-agent: *
 Allow: /
 Disallow: /api/
+
+# AI crawlers are welcome — this site is built to be found by AI search
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://jacobyi.info/sitemap.xml
